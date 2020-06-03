@@ -1,0 +1,7 @@
+awk 'BEGIN{FS=OFS="\t"} {for(i=2;i<=16;i++) gsub(/,/,".",$i)} 1' 1.txt > 2
+
+replace commad to dot as a decimal deparater from col2 to col16
+BEGIN{FS=OFS="\t"} = set the field-separator to \t
+for(i=2;i<=16;i++), for all columns, for(i=2;i<=NF;i++)
+gsub:substitute all comma to dot. If just the first comma, use sub instead of gsub
+1 = invoke the default action of printing the current line
