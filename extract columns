@@ -1,1 +1,5 @@
-awk '{for(i=1;i<=NF;i++} print $i}' file
+awk '{for(i=1;i<=12;i++) {printf("%s\t", $i)} print "" }' infile > outfile
+
+awk -F, 'BEGIN {OFS=","} { print $1, $2, $3, $4 ..... $30, $33}' infile > outfile
+
+cut -f 1,2,3 infile > outfile
