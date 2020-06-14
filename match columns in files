@@ -1,2 +1,3 @@
-awk 'NR==FNR{a[$1]=$2OFS$5OFS$6; next}{print $n,a[$2]}' OFS='\t' Input2 Input1 > Output
-# $n can also be like $1,$2,$4..., order can be changed
+awk 'NR==FNR{a[$1]=$2OFS$5OFS$6; next}{print $n,a[$2]}' FS='\t' OFS='\t' Input2 Input1 > Output
+# $n can also be like $1,$2,$4..., order can be changed; 
+# Or, {print a[$2]}, means only print Input2 but not Input1
