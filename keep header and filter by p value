@@ -1,0 +1,5 @@
+awk '(NR==1) || ($15 < 0.01)' clustering_commatodot.txt > sig
+
+#or
+
+awk 'NR==1; NR>1{if($15 < 0.01) { print }}' clustering_commatodot.txt > sig
