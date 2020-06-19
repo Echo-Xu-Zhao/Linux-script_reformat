@@ -1,3 +1,10 @@
 awk 'NR==FNR{a[$1]=$2OFS$5OFS$6; next}{print $n,a[$2]}' FS='\t' OFS='\t' Input2 Input1 > Output
 # $n can also be like $1,$2,$4..., order can be changed; 
 # Or, {print a[$2]}, means only print Input2 but not Input1
+
+
+#To print all lines in file1 with match if available:
+awk 'FNR==NR{a[$2]=$3;next;} {print $0,a[$6];}' file2 file1
+
+#To print only the lines that have a match:
+awk 'NR==FNR{a[$2]=$3;next} $6 in a {print $0,a[$6]}' file2 file1
