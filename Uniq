@@ -1,0 +1,4 @@
+cat .file | sort -u -k1,4 |wc -l
+
+
+https://www.baeldung.com/linux/uniq-by-column
