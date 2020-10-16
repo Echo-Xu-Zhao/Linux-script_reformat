@@ -1,0 +1,33 @@
+If you want to add a column to a file, you can do the following.
+
+remark: We assume that the field separator FS equals to the string "fs". You can replace this by anything, or if you just use <blanks> as field separator, you can remove the BEGIN{FS=OFS="fs"} part in any of the following solutions.
+
+add a column at the beginning:
+
+awk 'BEGIN{FS=OFS="fs"}{print value OFS $0}' file
+add a column at the end:
+
+awk 'BEGIN{FS=OFS="fs"}{print $0 OFS value}' file
+add a column before column n:
+
+awk 'BEGIN{FS=OFS="fs"}{$n = value OFS $n}1' file
+add column after column n:
+
+awk 'BEGIN{FS=OFS="fs"}{$n = $n OFS value}1' file
+add a column before each of column n1 < n2 < ... < nm: (start at the back)
+
+awk 'BEGIN{FS=OFS="fs"; split("n1,n2,n3,...,nm",a,",")}
+     {for(i=m;i>0;--i) $(a[i]) = value OFS $(a[i])}1' file
+or for different values
+
+awk 'BEGIN{FS=OFS="fs"; split("n1,n2,n3,...,nm",a,","); split("value1,value2,...,valuem",v,",")}
+     {for(i=m;i>0;--i) $(a[i]) = v[i] OFS $(a[i])}1' file
+add a column after each of column n1 < n2 < ... < nm: (start at the back)
+
+awk 'BEGIN{FS=OFS="fs"; split("n1,n2,n3,...,nm",a,",")}
+     {for(i=m;i>0;--i) $(a[i]) = $(a[i]) OFS value}1' file
+or for different values
+
+awk 'BEGIN{FS=OFS="fs"; split("n1,n2,n3,...,nm",a,","); split("value1,value2,...,valuem",v,",")}
+     {for(i=m;i>0;--i) $(a[i]) = $(a[i]) OFS v[i]}1' file
+     
