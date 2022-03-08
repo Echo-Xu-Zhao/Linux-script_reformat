@@ -1,2 +1,2 @@
-## elevate priviliege of root folders to specified usr
+## elevate priviliege of root folders to specified usr, sudo cannot be used with conda, sudo is only for root usr
 sudo chown usrname -R foldername
