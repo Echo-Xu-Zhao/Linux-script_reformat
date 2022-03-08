@@ -1,0 +1,2 @@
+## elevate priviliege of root folders to specified usr
+sudo chown usrname -R foldername
