@@ -1,0 +1,18 @@
+#!/bin/bash
+
+for name in *.bw;
+
+do
+mv "$name" "${name/_*./.}"
+
+
+done
+
+###############
+Input: 110_abc_123.bw
+       111_def_456.bw
+       112_ghi_789.bw
+       
+Output: 110.bw
+        111.bw
+        112.bw
