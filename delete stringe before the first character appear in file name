@@ -1,0 +1,8 @@
+##install prename package in linux
+
+prename -n 's/^\d{1,3}\_//' *.bw
+
+output
+1_input_wt_0_1.bw -> input_wt_0_1.bw
+20_H3K4me3_wt_180_2.bw -> H3K4me3_wt_180_2.bw
+129_CTD-pS5_mut_120_2.bw -> CTD-pS5_mut_120_2.bw
